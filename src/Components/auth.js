@@ -16,27 +16,32 @@ const Auth = () => {
     console.log(user);
   };
   const handleSubmit = () => {
-    console.log(islogin)
-    if (!islogin) {
+    if (
+      user.email.match(
+        "^([a-zA-Z0-9]+)([/@]{1})([a-zA-Z]{3,})([/.]?)([A-Za-z]{2,5})$"
+      ) == null
+    ) {
+      seterror("Email should be of type test@gmail.com");
+    } else if (!islogin) {
       if (user.Password != user.confirmPassword) {
         seterror("Passwords don't match");
+      } else {
+        seterror(null);
+        fetch("http://localhost:8000/signup", {
+          method: "Post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(user),
+        }).then((response) => {
+          if ((response.status = 409)) {
+            response.json().then((data) => {
+              console.log("done");
+            });
+          }
+        });
       }
-    else {
-      seterror(null);
-      fetch("http://localhost:8000/signup", {
-        method: "Post",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(user),
-      }).then((response) => {
-        if ((response.status = 409)) {
-          response.json().then((data) => {
-            console.log("done");
-          });
-        }
-      });
-    }}
+    }
   };
   return (
     <div className="main-container">
