@@ -1,14 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
+import Auth from "./Components/auth";
+import MessagingContainer from "./Components/messagingcontainer";
 import { StreamChat } from "stream-chat";
 import {
   Chat,
   Channel,
-  ChannelHeader,
-  ChannelList,
-  MessageList,
-  MessageInput,
-  Thread,
-  Window,
 } from "stream-chat-react";
 import "@stream-io/stream-chat-css/dist/css/index.css";
 
@@ -17,6 +13,7 @@ const options = { state: true, presence: true, limit: 10 };
 const sort = { last_message_at: -1 };
 
 const App = () => {
+  const authTOKEN=false;
   const [client, setClient] = useState(null);
   const[channel,setchannel]=useState(null);
   const modecheck=useRef(window.matchMedia("(prefers-color-scheme:dark)").matches);
@@ -63,17 +60,15 @@ const App = () => {
   if (!client) return null;
 
   return (
-    <Chat client={client} darkMode={modecheck.current}>
-      <ChannelList filters={filters} sort={sort} options={options} />
+    <>
+    {!authTOKEN && <Auth/> }
+    {authTOKEN && <Chat client={client} darkMode={modecheck.current}>
       <Channel channel={channel}  >
-        <Window>
-          <ChannelHeader />
-          <MessageList />
-          <MessageInput />
-        </Window>
-        <Thread />
+       <MessagingContainer/>
       </Channel>
-    </Chat>
+    </Chat>}
+    </>
+
   );
 };
 
