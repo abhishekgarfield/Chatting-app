@@ -11,23 +11,86 @@ body {
 .main-container
 {
   height: 100vh;
+  background: url("./Images/free-online-peach-heart-love-dialog-like-vector-pngmac-hearts-png-free-transparent-png-images-pngaaacom-removebg-preview.png");
+  background-position:right;
+  background-repeat: no-repeat;
+  background-size:35vw 75vh;
+  background-attachment: fixed;
   width: 100vw;
   display: flex;
   justify-content:center;
   align-items: center;
-  background-color: aqua;
 }
 .inside-container
 {
+  padding: 10px;
   display: flex;
-  flex-basis: 40%;
+  border-radius: 6px;
+  width: 30vw;
   flex-direction: row;
   flex-wrap: wrap;
- background-color: aquamarine; 
+  border:1px solid palevioletred;
+  transition: 0.5s all;
+  box-shadow:5px 5px 11px 1px rgba(0, 0, 0, 0.596);
+}
+.inside-container:hover
+{
+  box-shadow:7px 7px 11px 3px rgba(0, 0, 0, 0.596);
 }
 .inside-container label{
-  flex: 0 1 50%;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 18px;
+  flex: 0 0 90%;
 }
 .inside-container input{
-  flex-grow: 1;
+  margin: 10px;
+  margin-top: 3px;
+  background-color: rgba(211, 211, 211, 0.289);
+  padding: 10px;
+  font-size: 18px;
+  flex:0 1 90%;
+}
+.set-model
+{ display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin :auto;
+  margin-top: 10px;
+  flex-basis: 60%;
+  align-self:flex-end;
+}
+.set-model input{
+  font-size: 18px;
+  padding: 7px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+input[type="button"]:focus
+{
+border: 2px solid red;
+color: aliceblue;
+box-shadow: 2px 2px 3px 1px rgba(255, 0, 0, 0.517);
+border-radius: 5px;
+background-color: black;
+}
+.go
+{
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  justify-content: center;
+  background-color: red;
+  text-align: center;
+  padding:10px;
+  font-size: 20px;
+  font-weight: bolder;
+  border-radius: 3px;
+  margin-top: 3px;
+  transition: 0.2s all;
+}
+.go:hover
+{
+  box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.54);
+  color: white;
 }
