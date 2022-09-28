@@ -1,0 +1,13 @@
+import type { Attachment } from 'stream-chat';
+import type { DefaultStreamChatGenerics } from '../../types/types';
+export declare type GalleryProps<StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics> = {
+    images: {
+        image_url?: string | undefined;
+        thumb_url?: string | undefined;
+    }[] | Attachment<StreamChatGenerics>[];
+};
+/**
+ * Displays images in a simple responsive grid with a light box to view the images.
+ */
+export declare const Gallery: <StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics>(props: GalleryProps<StreamChatGenerics>) => JSX.Element;
+//# sourceMappingURL=Gallery.d.ts.map

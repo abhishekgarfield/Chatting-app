@@ -1,9 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import "font-awesome/css/font-awesome.min.css"
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+
+import { CookiesProvider } from "react-cookie";
+import "font-awesome/css/font-awesome.min.css";
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+  <CookiesProvider>
     <App />
+  </CookiesProvider>
 );

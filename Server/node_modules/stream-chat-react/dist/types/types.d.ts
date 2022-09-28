@@ -1,0 +1,74 @@
+import type { PropsWithChildren } from 'react';
+import type { LoadingIndicatorProps } from '../components/Loading/LoadingIndicator';
+import type { APIErrorResponse, ErrorFromResponse, Event, ExtendableGenerics, LiteralStringForUnion, Mute } from 'stream-chat';
+export declare type UnknownType = Record<string, unknown>;
+export declare type PropsWithChildrenOnly = PropsWithChildren<Record<never, never>>;
+export declare type CustomTrigger = {
+    [key: string]: {
+        componentProps: UnknownType;
+        data: UnknownType;
+    };
+};
+export declare type CustomMessageType = 'channel.intro' | 'message.date';
+export declare type DefaultAttachmentType = UnknownType & {
+    asset_url?: string;
+    file_size?: number;
+    id?: string;
+    images?: Array<{
+        image_url?: string;
+        thumb_url?: string;
+    }>;
+};
+export declare type DefaultChannelType = UnknownType & {
+    frozen?: boolean;
+    image?: string;
+    member_count?: number;
+    subtitle?: string;
+};
+export declare type DefaultStreamChatGenerics = ExtendableGenerics & {
+    attachmentType: DefaultAttachmentType;
+    channelType: DefaultChannelType;
+    commandType: LiteralStringForUnion;
+    eventType: UnknownType;
+    messageType: DefaultMessageType;
+    reactionType: UnknownType;
+    userType: DefaultUserType;
+};
+export declare type DefaultMessageType<StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics> = UnknownType & {
+    customType?: CustomMessageType;
+    date?: string | Date;
+    error?: ErrorFromResponse<APIErrorResponse>;
+    errorStatusCode?: number;
+    event?: Event<StreamChatGenerics>;
+    unread?: boolean;
+};
+export declare type DefaultUserTypeInternal = {
+    image?: string;
+    status?: string;
+};
+export declare type DefaultUserType<StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics> = UnknownType & DefaultUserTypeInternal & {
+    mutes?: Array<Mute<StreamChatGenerics>>;
+};
+export declare type GiphyVersions = 'original' | 'fixed_height' | 'fixed_height_still' | 'fixed_height_downsampled' | 'fixed_width' | 'fixed_width_still' | 'fixed_width_downsampled';
+export declare type PaginatorProps = {
+    /** callback to load the next page */
+    loadNextPage: () => void;
+    /** indicates if there is a next page to load */
+    hasNextPage?: boolean;
+    /** The loading indicator to use */
+    LoadingIndicator?: React.ComponentType<LoadingIndicatorProps>;
+    /** indicates if there there's currently any refreshing taking place */
+    refreshing?: boolean;
+    /** display the items in opposite order */
+    reverse?: boolean;
+    /** Offset from when to start the loadNextPage call */
+    threshold?: number;
+};
+export interface IconProps {
+    className?: string;
+}
+export declare type Dimensions = {
+    height?: string;
+    width?: string;
+};
+//# sourceMappingURL=types.d.ts.map

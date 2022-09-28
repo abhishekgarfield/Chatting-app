@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useCookies } from "react-cookie";
 
 const Auth = () => {
+  const [cookies, setCookie, removeCooie] = useCookies([`user`]);
   const [islogin, setislogin] = useState(true);
   const [user, setUser] = useState({
     email: "",
@@ -33,13 +35,17 @@ const Auth = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(user),
-        }).then((response) => {
-          if ((response.status = 409)) {
-            response.json().then((data) => {
-              console.log("done");
-            });
-          }
-        });
+        })
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data);
+            setCookie("Name", data.email);
+            setCookie("authToken", data.token);
+            setCookie("hashedPassword", data.hashedPassword);
+            setCookie("user_id", data.user_id);
+          });
       }
     }
   };
