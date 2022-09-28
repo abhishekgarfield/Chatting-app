@@ -7,6 +7,7 @@ const Auth = () => {
     Password: "",
     confirmPassword: "",
   });
+  const [error, seterror] = useState(null);
   const handleChange = (e) => {
     const value = e.target.value;
     const name = e.target.name;
@@ -14,9 +15,29 @@ const Auth = () => {
     setUser({ ...user, [name]: value });
     console.log(user);
   };
-  const handleSubmit=()=>{
-    
-  }
+  const handleSubmit = () => {
+    console.log(islogin)
+    if (!islogin) {
+      if (user.Password != user.confirmPassword) {
+        seterror("Passwords don't match");
+      }
+    else {
+      seterror(null);
+      fetch("http://localhost:8000/signup", {
+        method: "Post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      }).then((response) => {
+        if ((response.status = 409)) {
+          response.json().then((data) => {
+            console.log("done");
+          });
+        }
+      });
+    }}
+  };
   return (
     <div className="main-container">
       <div className="inside-container">
@@ -67,14 +88,19 @@ const Auth = () => {
             type="button"
             value="Sign up"
             onClick={() => {
-                handleSubmit();
               setislogin(false);
             }}
           />
         </div>
-        <div className="go">
-            Go!
+        <div className="go" onClick={handleSubmit}>
+          Go!
         </div>
+        {error && (
+          <div style={{ color: "red", marginTop: 10 }}>
+            <i style={{ marginRight: 5 }} className="fa   fa-exclamation"></i>
+            {error}
+          </div>
+        )}
       </div>
     </div>
   );

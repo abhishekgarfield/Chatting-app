@@ -58,6 +58,7 @@ body {
   margin :auto;
   margin-top: 10px;
   flex-basis: 60%;
+  cursor: pointer;
   align-self:flex-end;
 }
 .set-model input{
@@ -72,6 +73,7 @@ border: 2px solid red;
 color: aliceblue;
 box-shadow: 2px 2px 3px 1px rgba(255, 0, 0, 0.517);
 border-radius: 5px;
+cursor: pointer;
 background-color: black;
 }
 .go
@@ -93,4 +95,5 @@ background-color: black;
 {
   box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.54);
   color: white;
+  cursor: pointer;
 }
