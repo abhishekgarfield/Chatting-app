@@ -24,10 +24,11 @@ app.post("/signup", async (req, res) => {
     delete user.confirmPassword;
     user.user_id = user_id;
     user.hashedPassword = hashedPassword;
-delete user.Password;
+    delete user.Password;
     const client = connect(API_KEY, API_SECRET, App_id);
     const token = client.createUserToken(user_id);
-    user.token = token;
+    user.token = token.toString();
+    console.log(user)
     res.json(user);
   } catch (err) {
     console.log(err);

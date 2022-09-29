@@ -18,13 +18,7 @@ const Auth = () => {
     console.log(user);
   };
   const handleSubmit = () => {
-    if (
-      user.email.match(
-        "^([a-zA-Z0-9]+)([/@]{1})([a-zA-Z]{3,})([/.]?)([A-Za-z]{2,5})$"
-      ) == null
-    ) {
-      seterror("Email should be of type test@gmail.com");
-    } else if (!islogin) {
+     if (!islogin) {
       if (user.Password != user.confirmPassword) {
         seterror("Passwords don't match");
       } else {
@@ -45,6 +39,7 @@ const Auth = () => {
             setCookie("authToken", data.token);
             setCookie("hashedPassword", data.hashedPassword);
             setCookie("user_id", data.user_id);
+            window.location.reload();
           });
       }
     }
