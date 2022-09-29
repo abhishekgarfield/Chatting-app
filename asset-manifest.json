@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/Chatting-app/static/css/main.ff850f15.css",
+    "main.js": "/Chatting-app/static/js/main.39fb79c8.js",
+    "static/js/717.c99c5456.chunk.js": "/Chatting-app/static/js/717.c99c5456.chunk.js",
+    "static/js/141.e8861312.chunk.js": "/Chatting-app/static/js/141.e8861312.chunk.js",
+    "static/js/209.b961247f.chunk.js": "/Chatting-app/static/js/209.b961247f.chunk.js",
+    "static/js/829.28eb0e1b.chunk.js": "/Chatting-app/static/js/829.28eb0e1b.chunk.js",
+    "static/media/EmojiOneColor.woff2": "/Chatting-app/static/media/EmojiOneColor.90ee5fb894c8d349bc54.woff2",
+    "static/media/NotoColorEmoji-flags.woff2": "/Chatting-app/static/media/NotoColorEmoji-flags.148141acfb7ce6e4f383.woff2",
+    "static/media/fontawesome-webfont.svg?v=4.7.0": "/Chatting-app/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
+    "static/media/fontawesome-webfont.eot": "/Chatting-app/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
+    "static/media/fontawesome-webfont.ttf?v=4.7.0": "/Chatting-app/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
+    "static/media/fontawesome-webfont.woff?v=4.7.0": "/Chatting-app/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
+    "static/media/fontawesome-webfont.woff2?v=4.7.0": "/Chatting-app/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
+    "index.html": "/Chatting-app/index.html",
+    "main.ff850f15.css.map": "/Chatting-app/static/css/main.ff850f15.css.map",
+    "main.39fb79c8.js.map": "/Chatting-app/static/js/main.39fb79c8.js.map",
+    "717.c99c5456.chunk.js.map": "/Chatting-app/static/js/717.c99c5456.chunk.js.map",
+    "141.e8861312.chunk.js.map": "/Chatting-app/static/js/141.e8861312.chunk.js.map",
+    "209.b961247f.chunk.js.map": "/Chatting-app/static/js/209.b961247f.chunk.js.map",
+    "829.28eb0e1b.chunk.js.map": "/Chatting-app/static/js/829.28eb0e1b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ff850f15.css",
+    "static/js/main.39fb79c8.js"
+  ]
+}
