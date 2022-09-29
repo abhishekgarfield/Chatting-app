@@ -1,7 +1,7 @@
 var express = require("express");
 var app = express();
 const { connect } = require("getstream");
-const StreamChat = require('stream-chat').StreamChat
+const StreamChat = require("stream-chat").StreamChat;
 app.use(express.json());
 const { v4 } = require("uuid");
 var cors = require("cors");
@@ -29,43 +29,42 @@ app.post("/signup", async (req, res) => {
     const client = connect(API_KEY, API_SECRET, App_id);
     const token = client.createUserToken(user_id);
     user.token = token.toString();
-    console.log(user)
+    console.log(user);
     res.json(user);
   } catch (err) {
     console.log(err);
   }
 });
 
-//login 
+//login
 
-app.post('/login', async (req,res) => {
-  console.log("login")
+app.post("/login", async (req, res) => {
+  console.log("login");
   try {
-      const { email, Password } = req.body
-      const client = connect(API_KEY, API_SECRET, App_id);
-      const chatClient = StreamChat.getInstance(API_KEY, API_SECRET)
-      const { users} = await chatClient.queryUsers({ name: email })
+    const { email, Password } = req.body;
+    const client = connect(API_KEY, API_SECRET, App_id);
+    const chatClient = StreamChat.getInstance(API_KEY, API_SECRET);
+    const { users } = await chatClient.queryUsers({ name: email });
 
-      if (!users.length) {return res.status(400).json({ message: 'User does not exist'})}
-      else{
-      const success = await bcrypt.compare(Password, users[0].hashedPassword)
-      const token = client.createUserToken(users[0].id)
-      const confirmedName = users[0].name
-      const userId = users[0].id
+    if (!users.length) {
+      return res.status(400).json({ message: "User does not exist" });
+    } else {
+      const success = await bcrypt.compare(Password, users[0].hashedPassword);
+      const token = client.createUserToken(users[0].id);
+      const confirmedName = users[0].name;
+      const userId = users[0].id;
 
       if (success) {
-          res.status(200).json({ token, username: confirmedName, userId })
+        res.status(200).json({ token, username: confirmedName, userId });
       } else {
-          res.status(500).json({ message: 'Password invalid'})
+        res.status(500).json({ message: "Password invalid" });
       }
     }
-
-
   } catch (error) {
-      console.log(error)
-      res.status(500).json({message: error})
+    console.log(error);
+    res.status(500).json({ message: error });
   }
-})
+});
 
 app.listen(port, () => {
   console.log("App is running on 8000");
