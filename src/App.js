@@ -27,7 +27,7 @@ const App = () => {
       );
       tempobj.client = chatClient;
 
-      const channel = chatClient.channel("messaging", "demo", {
+      const channel = chatClient.channel("messaging", "demos", {
         // add as many custom fields as you'd like
         name: "Gamers",
         members: [cookies.user_id],
