@@ -3,15 +3,12 @@ var app = express();
 const { connect } = require("getstream");
 const StreamChat = require("stream-chat").StreamChat;
 app.use(express.json());
+require("dotenv").config();
 const { v4 } = require("uuid");
 var cors = require("cors");
 const bcrypt = require("bcrypt");
 const port = 8000;
 app.use(cors());
-const API_KEY = "46gb46cpf2hp";
-const API_SECRET =
-  "pz2544tunhb4eqek7guchdu32ub9mkqthfvbt8fqawzpnxfjahegtcpd4v4u53fa";
-const App_id = 1212297;
 //Sign up
 
 app.post("/signup", async (req, res) => {
@@ -26,7 +23,7 @@ app.post("/signup", async (req, res) => {
     user.user_id = user_id;
     user.hashedPassword = hashedPassword;
     delete user.Password;
-    const client = connect(API_KEY, API_SECRET, App_id);
+    const client = connect(process.env.API_KEY, process.env.API_SECRET, process.env.App_id);
     const token = client.createUserToken(user_id);
     user.token = token.toString();
     console.log(user);
@@ -42,8 +39,8 @@ app.post("/login", async (req, res) => {
   console.log("login");
   try {
     const { email, Password } = req.body;
-    const client = connect(API_KEY, API_SECRET, App_id);
-    const chatClient = StreamChat.getInstance(API_KEY, API_SECRET);
+    const client = connect(process.env.API_KEY, process.env.API_SECRET, process.env.App_id);
+    const chatClient = StreamChat.getInstance(process.env.API_KEY, process.env.API_SECRET);
     const { users } = await chatClient.queryUsers({ name: email });
 
     if (!users.length) {
