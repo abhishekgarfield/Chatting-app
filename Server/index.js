@@ -23,7 +23,11 @@ app.post("/signup", async (req, res) => {
     user.user_id = user_id;
     user.hashedPassword = hashedPassword;
     delete user.Password;
-    const client = connect(process.env.API_KEY, process.env.API_SECRET, process.env.App_id);
+    const client = connect(
+      process.env.API_KEY,
+      process.env.API_SECRET,
+      process.env.App_id
+    );
     const token = client.createUserToken(user_id);
     user.token = token.toString();
     console.log(user);
@@ -39,8 +43,15 @@ app.post("/login", async (req, res) => {
   console.log("login");
   try {
     const { email, Password } = req.body;
-    const client = connect(process.env.API_KEY, process.env.API_SECRET, process.env.App_id);
-    const chatClient = StreamChat.getInstance(process.env.API_KEY, process.env.API_SECRET);
+    const client = connect(
+      process.env.API_KEY,
+      process.env.API_SECRET,
+      process.env.App_id
+    );
+    const chatClient = StreamChat.getInstance(
+      process.env.API_KEY,
+      process.env.API_SECRET
+    );
     const { users } = await chatClient.queryUsers({ name: email });
 
     if (!users.length) {
