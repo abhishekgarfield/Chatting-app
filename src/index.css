@@ -8,102 +8,146 @@ body {
 }
 
 
-.main-container
-{
+.main-container {
   height: 100vh;
-  background: url("./Images/free-online-peach-heart-love-dialog-like-vector-pngmac-hearts-png-free-transparent-png-images-pngaaacom-removebg-preview.png");
-  background-position:right;
+  background: url("https://i.imgur.com/OIM3Cnp.jpg");
+  background-position: right;
   background-repeat: no-repeat;
-  background-size:35vw 75vh;
+  background-size: 35vw 75vh;
   background-attachment: fixed;
   width: 100vw;
   display: flex;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
 }
-.inside-container
-{
-  padding: 10px;
+
+.inside-container {
+  background: linear-gradient(80deg, black, rgba(231, 228, 51, 0.605) 20%, black 80%);
+  padding: 0px 20px 0px 20px;
   display: flex;
-  border-radius: 6px;
   width: 30vw;
+  align-items: center;
+  height: 100vh;
   flex-direction: row;
   flex-wrap: wrap;
-  border:1px solid palevioletred;
   transition: 0.5s all;
-  box-shadow:5px 5px 11px 1px rgba(0, 0, 0, 0.596);
 }
-.inside-container:hover
-{
-  box-shadow:7px 7px 11px 3px rgba(0, 0, 0, 0.596);
+
+.inside-container:hover {
+  box-shadow: 7px 7px 11px 3px rgba(0, 0, 0, 0.596);
 }
-.inside-container label{
+
+.inside-container label {
+  display: flex;
   padding: 10px;
-  font-weight: 600;
+  font-weight: 900;
+  font-size: 20px;
+  flex: 0 0 90%;
+}
+
+.inte {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.inside-container input {
+  display: flex;
+  padding: 10px;
+  font-weight: 900;
   font-size: 18px;
   flex: 0 0 90%;
 }
-.inside-container input{
-  margin: 10px;
-  margin-top: 3px;
-  background-color: rgba(211, 211, 211, 0.289);
-  padding: 10px;
-  font-size: 18px;
-  flex:0 1 90%;
-}
-.set-model
-{ display: flex;
+
+.set-model {
+  display: flex;
   justify-content: center;
   flex-direction: row;
-  margin :auto;
+  margin: auto;
   margin-top: 10px;
-  flex-basis: 60%;
+  margin-top: 20px;
+  margin-bottom: 20px;
   cursor: pointer;
-  align-self:flex-end;
+  align-items: center;
 }
-.set-model input{
+
+.set-model input {
   font-size: 18px;
+  display: block;
   padding: 7px;
+  text-align: center;
+  margin-right: 10px;
   border-radius: 5px;
-  font-weight: bold;
+  font-weight: "900";
 }
-input[type="button"]:focus
-{
-border: 2px solid red;
-color: aliceblue;
-box-shadow: 2px 2px 3px 1px rgba(255, 0, 0, 0.517);
-border-radius: 5px;
-cursor: pointer;
-background-color: black;
+
+input[type="button"]:focus {
+  border: 2px solid red;
+  color: aliceblue;
+  box-shadow: 2px 2px 3px 1px rgba(255, 0, 0, 0.517);
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: black;
 }
-.go
-{
+
+.go {
   display: flex;
   flex-direction: column;
-  flex-basis: 100%;
+  flex-basis: 90%;
   justify-content: center;
   background-color: red;
   text-align: center;
-  padding:10px;
+  padding: 10px;
   font-size: 20px;
   font-weight: bolder;
   border-radius: 3px;
   margin-top: 3px;
   transition: 0.2s all;
 }
-.go:hover
-{
+
+.go:hover {
   box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.54);
   color: white;
   cursor: pointer;
 }
-.image{
-  display:"flex"; width:100%;
+
+.image {
+  display: "flex";
+  width: 100%;
   flex-grow: 1;
 }
-.image-container
-{
+
+.image-container {
   display: flex;
-flex-grow: 1;
-padding: 18px 0px 0px 0px;
+  flex-grow: 1;
+  padding: 0px 0px 0px 0px;
+}
+
+.second {
+  height: 100vh;
+  flex-grow: 1;
+  width: 70vw;
+  flex: 1 0 50%;
+}
+
+.second-image {
+  display: flex;
+  flex-grow: 1;
+}
+.log
+{
+  text-align: center;
+  padding: 10px;
+  font-size: 23px;
+  font-weight: 900;
+  color: red;
+  background-color: aliceblue;
+  margin: 10px;
+  margin-left: 25px;
+  margin-right: 25px;
+  transition: 0.3s all;
+}
+.log:hover{
+  background-color: black;
+  cursor: pointer;
 }

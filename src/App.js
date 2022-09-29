@@ -5,10 +5,10 @@ import { StreamChat } from "stream-chat";
 import { Chat, Channel } from "stream-chat-react";
 import "@stream-io/stream-chat-css/dist/css/index.css";
 import { useCookies } from "react-cookie";
-import Img from "./Images/viky.jpeg";
-import Vicky from "./Images/viky.jpeg";
+import { customStyles } from "./customstyles";
 
 const App = () => {
+  const chkmode = window.matchMedia("(prefers-color-scheme:dark)").matches;
   const [cookies, setCookie, removeCookie] = useCookies([`user`]);
   const [data, setData] = useState({});
   const authToken = cookies.authToken;
@@ -42,12 +42,26 @@ const App = () => {
     <>
       {!authToken && <Auth />}
       {authToken && data.client && (
-        <Chat client={data?.client} darkMode={true}>
+        <Chat
+          client={data?.client}
+          customStyles={
+            chkmode
+              ? customStyles
+              : {
+                  "--sm-p": "0",
+                  "--xs-p": "0",
+                  "--border-radius-md": "0",
+                  "--sm-p": "0",
+                  "--primary-color": "green",
+                  "--md-font": "1.2rem",
+                  "--xs-m": "1.2rem",
+                }
+          }
+        >
           <Channel channel={data?.channel}>
             <div className="image-container">
               <img
                 className="image"
-                style={{ display: "flex", width: 100 }}
                 src="https://media.giphy.com/media/y0NFayaBeiWEU/giphy.gif"
               />
             </div>

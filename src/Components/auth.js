@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useCookies } from "react-cookie";
 
 const Auth = () => {
+  
   const [cookies, setCookie, removeCooie] = useCookies([`user`]);
   const [islogin, setislogin] = useState(true);
   const [user, setUser] = useState({
@@ -44,11 +45,44 @@ const Auth = () => {
             window.location.reload();
           });
       }
+    }else if(islogin)
+    {
+      fetch("http://localhost:8000/login", {
+          method: "Post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(user),
+        })
+        .then((response)=>{
+          if(response.status==400)
+          {
+            response.json().then((data)=>{
+              setCookie("Name", data.username);
+            setCookie("authToken", data.token);
+            setCookie("user_id", data.userId);
+            window.location.reload();
+            })
+          }
+          else if(response.status==200)
+          {
+            response.json().then((data)=>{
+              seterror(data.message);
+            })
+          }
+          else if(response.status==500)
+          {
+            response.json().then((data)=>{
+              seterror(data.message);
+            })
+          }
+        })
     }
   };
   return (
     <div className="main-container">
       <div className="inside-container">
+        <div className="inte">
         <label htmlFor="email">Username</label>
         <input
           type="text"
@@ -95,6 +129,10 @@ const Auth = () => {
         )}
         <div className="set-model">
           <input
+          style={islogin ?{borderWidth: 2,borderColor: "red",
+          color: "aliceblue",
+          borderRadius: 5,
+          backgroundColor: "Black"}:{}}
             type="button"
             value="Login"
             onClick={() => {
@@ -102,6 +140,10 @@ const Auth = () => {
             }}
           />
           <input
+          style={islogin ?{}:{borderWidth: 2,borderColor: "red",
+          color: "aliceblue",
+          borderRadius: 5,
+          backgroundColor: "Black"}}
             type="button"
             value="Sign up"
             onClick={() => {
@@ -118,6 +160,10 @@ const Auth = () => {
             {error}
           </div>
         )}
+        </div>
+      </div>
+      <div className="second-image">
+        <img  className="second" src="https://i.imgur.com/VJOQN2t.jpg"/>
       </div>
     </div>
   );
