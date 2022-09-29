@@ -8,6 +8,7 @@ const Auth = () => {
     email: "",
     Password: "",
     confirmPassword: "",
+    url: "",
   });
   const [error, seterror] = useState(null);
   const handleChange = (e) => {
@@ -18,7 +19,7 @@ const Auth = () => {
     console.log(user);
   };
   const handleSubmit = () => {
-     if (!islogin) {
+    if (!islogin) {
       if (user.Password != user.confirmPassword) {
         seterror("Passwords don't match");
       } else {
@@ -39,6 +40,7 @@ const Auth = () => {
             setCookie("authToken", data.token);
             setCookie("hashedPassword", data.hashedPassword);
             setCookie("user_id", data.user_id);
+            setCookie("url", data.url);
             window.location.reload();
           });
       }
@@ -47,7 +49,7 @@ const Auth = () => {
   return (
     <div className="main-container">
       <div className="inside-container">
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">Username</label>
         <input
           type="text"
           name="email"
@@ -69,7 +71,6 @@ const Auth = () => {
         />
         {!islogin && (
           <>
-            {" "}
             <label htmlFor="email">Confirm Password</label>
             <input
               type="Password"
@@ -77,6 +78,16 @@ const Auth = () => {
               id="confirmPassword"
               value={user.confirmPassword}
               onChange={(e) => {
+                handleChange(e);
+              }}
+            />
+            <label htmlFor="url">Profile pic</label>
+            <input
+              type="url"
+              name="url"
+              id="url"
+              value={user.url}
+              onInput={(e) => {
                 handleChange(e);
               }}
             />

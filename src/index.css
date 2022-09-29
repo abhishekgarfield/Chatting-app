@@ -97,3 +97,13 @@ background-color: black;
   color: white;
   cursor: pointer;
 }
+.image{
+  display:"flex"; width:100%;
+  flex-grow: 1;
+}
+.image-container
+{
+  display: flex;
+flex-grow: 1;
+padding: 18px 0px 0px 0px;
+}
